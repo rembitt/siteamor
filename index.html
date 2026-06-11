@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manu e Davi 💙</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Caveat:wght@400;600&family=Newsreader:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+
+  <style>
+
+    /* ============================================================
+       VARIÁVEIS DE COR E FONTE
+       Para mudar as cores do site, edite os valores abaixo
+    ============================================================ */
+    :root {
+      --bg:         #f8f2e8;   /* fundo geral — creme quente      */
+      --bg-carta:   #ffffff;   /* fundo da carta e polaroids       */
+      --texto:      #2c1810;   /* texto principal — marrom escuro  */
+      --texto-medo: #6b4c3b;   /* texto secundário — marrom médio  */
+      --vinho:      #7a1c1c;   /* cor de destaque — vinho          */
+      --vinho-rgb:  122,28,28; /* mesma cor em RGB (para opacity)  */
+      --borda:      #d4bfaa;   /* bordas suaves                    */
+      --sombra:     rgba(44,24,16,0.10); /* sombra dos cards       */
+    }
+
+    /* ============================================================
+       BASE
+    ============================================================ */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--texto);
+      font-family: 'Newsreader', serif;
+      min-height: 100vh;
+    }
+
+    /* ============================================================
+       NAVEGAÇÃO — DESKTOP
+    ============================================================ */
+    nav {
+      background-color: var(--bg-carta);
+      border-bottom: 1px solid var(--borda);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.2rem;
+      height: 54px;
+    }
+
+    /* Logo / título pequeno */
+    .nav-logo {
+      font-family: 'Caveat', cursive;
+      font-size: 1.3rem;
+      color: var(--vinho);
+      text-decoration: none;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    /* Lista de itens do menu */
+    .nav-lista {
+      display: flex;
+      align-items: center;
+      gap: 0.2rem;
+      list-style: none;
+    }
+
+    /* Cada item do menu */
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-link {
+      display: block;
+      padding: 0.5rem 0.8rem;
+      font-family: 'Fraunces', serif;
+      font-size: 0.95rem;
+      color: var(--texto);
+      text-decoration: none;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.15s;
+      white-space: nowrap;
+      background: none;
+      border: none;
+    }
+
+    .nav-link:hover {
+      background: rgba(var(--vinho-rgb), 0.07);
+      color: var(--vinho);
+    }
+
+    /* Seta do dropdown */
+    .nav-link.tem-dropdown::after {
+      content: " ▾";
+      font-size: 0.75rem;
+    }
+
+    /* Dropdown dos anos */
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--bg-carta);
+      border: 1px solid var(--borda);
+      border-radius: 4px;
+      min-width: 160px;
+      box-shadow: 0 4px 12px var(--sombra);
+      list-style: none;
+      padding: 0.4rem 0;
+    }
+
+    .nav-item:hover .dropdown {
+      display: block;
+    }
+
+    .dropdown li a {
+      display: block;
+      padding: 0.45rem 1.1rem;
+      font-family: 'Fraunces', serif;
+      font-size: 0.9rem;
+      color: var(--texto);
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.12s;
+    }
+
+    .dropdown li a:hover {
+      background: rgba(var(--vinho-rgb), 0.06);
+      color: var(--vinho);
+    }
+
+    /* Botão hambúrguer — só aparece no mobile */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 6px;
+      background: none;
+      border: none;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--texto);
+      border-radius: 2px;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+
+    /* Menu mobile — escondido por padrão */
+    .menu-mobile {
+      display: none;
+      background: var(--bg-carta);
+      border-top: 1px solid var(--borda);
+      padding: 0.8rem 1.2rem 1.2rem;
+    }
+
+    .menu-mobile.aberto {
+      display: block;
+    }
+
+    .menu-mobile a,
+    .menu-mobile button {
+      display: block;
+      width: 100%;
+      text-align: left;
+      padding: 0.6rem 0;
+      font-family: 'Fraunces', serif;
+      font-size: 1rem;
+      color: var(--texto);
+      text-decoration: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      border-bottom: 1px solid var(--borda);
+    }
+
+    .menu-mobile a:last-child,
+    .menu-mobile button:last-child {
+      border-bottom: none;
+    }
+
+    /* Sub-meses no mobile */
+    .submenu-mobile {
+      display: none;
+      padding-left: 1rem;
+      border-left: 2px solid var(--borda);
+      margin: 0.4rem 0 0.4rem 0.5rem;
+    }
+
+    .submenu-mobile.aberto {
+      display: block;
+    }
+
+    .submenu-mobile a {
+      font-size: 0.9rem;
+      color: var(--texto-medo);
+      border-bottom: none;
+      padding: 0.4rem 0;
+    }
+
+    /* ============================================================
+       SEÇÕES — controladas pelo JavaScript
+    ============================================================ */
+    .secao {
+      display: none;
+    }
+
+    .secao.ativa {
+      display: block;
+    }
+
+    /* ============================================================
+       CONTEÚDO PRINCIPAL
+    ============================================================ */
+    .conteudo {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2.5rem 1.4rem 4rem;
+    }
+
+    /* ============================================================
+       CARTA — Seção Início
+    ============================================================ */
+    .carta-wrapper {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    /* Título acima da carta */
+    .carta-titulo {
+      font-family: 'Caveat', cursive;
+      font-size: 1.1rem;
+      color: var(--vinho);
+      text-align: center;
+      margin-bottom: 0.8rem;
+      letter-spacing: 0.02em;
+    }
+
+    /* O card da carta */
+    .carta {
+      background: var(--bg-carta);
+      padding: 2.5rem 2rem;
+      position: relative;
+    }
+
+    /* Borda listrada de envelope no topo e base */
+    .carta::before,
+    .carta::after {
+      content: "";
+      display: block;
+      height: 8px;
+      background: repeating-linear-gradient(
+        90deg,
+        var(--vinho) 0px, var(--vinho) 14px,
+        var(--bg-carta) 14px, var(--bg-carta) 22px
+      );
+    }
+
+    .carta::before {
+      margin: -2.5rem -2rem 2rem;
+    }
+
+    .carta::after {
+      margin: 2rem -2rem -2.5rem;
+    }
+
+    .carta p {
+      font-size: 1rem;
+      color: var(--texto);
+      line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+
+    .carta p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    /* Assinatura cursiva */
+    .carta-assinatura {
+      font-family: 'Caveat', cursive;
+      font-size: 1.5rem;
+      color: var(--vinho);
+      text-align: right;
+      margin-top: 1.5rem;
+    }
+
+    /* ============================================================
+       CABEÇALHO DOS MESES
+    ============================================================ */
+    .mes-cabecalho {
+      margin-bottom: 2.5rem;
+    }
+
+    .mes-ano-label {
+      font-family: 'Caveat', cursive;
+      font-size: 1rem;
+      color: var(--vinho);
+      letter-spacing: 0.05em;
+    }
+
+    .mes-titulo {
+      font-family: 'Fraunces', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--texto);
+      line-height: 1.1;
+      margin-top: 0.1rem;
+    }
+
+    /* Linha decorativa abaixo do título */
+    .mes-linha {
+      width: 48px;
+      height: 2px;
+      background: var(--vinho);
+      margin-top: 0.9rem;
+    }
+
+    /* ============================================================
+       TEXTO DO MÊS
+    ============================================================ */
+    .mes-texto {
+      font-size: 1rem;
+      line-height: 1.78;
+      color: var(--texto);
+      margin-bottom: 2.8rem;
+      max-width: 640px;
+    }
+
+    .mes-texto p {
+      margin-bottom: 1em;
+    }
+
+    .mes-texto p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Placeholder de texto (para meses sem texto ainda) */
+    .texto-placeholder {
+      font-style: italic;
+      color: var(--borda);
+      background: rgba(var(--vinho-rgb), 0.03);
+      border: 1px dashed var(--borda);
+      border-radius: 4px;
+      padding: 1rem 1.2rem;
+    }
+
+    /* ============================================================
+       GRADE DE POLAROIDS
+    ============================================================ */
+    .polaroids-titulo {
+      font-family: 'Caveat', cursive;
+      font-size: 1rem;
+      color: var(--vinho);
+      margin-bottom: 1.4rem;
+      letter-spacing: 0.03em;
+    }
+
+    .grade-polaroids {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      justify-content: flex-start;
+    }
+
+    /* Uma polaroid */
+    .polaroid {
+      background: var(--bg-carta);
+      padding: 0.7rem 0.7rem 2rem; /* base maior = estilo polaroid */
+      box-shadow: 2px 4px 14px var(--sombra), 0 1px 3px rgba(0,0,0,0.06);
+      width: calc(50% - 0.9rem); /* 2 colunas no celular */
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    /* Rotações alternadas para parecer físico */
+    .polaroid:nth-child(odd)  { transform: rotate(-2deg); }
+    .polaroid:nth-child(even) { transform: rotate(1.5deg); }
+
+    .polaroid:hover,
+    .polaroid:active {
+      transform: rotate(0deg) scale(1.02);
+      box-shadow: 4px 8px 20px rgba(44,24,16,0.18);
+      z-index: 2;
+      position: relative;
+    }
+
+    .polaroid img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      background: var(--borda);
+    }
+
+    /* Legenda embaixo da polaroid — edite no JavaScript */
+    .polaroid-legenda {
+      font-family: 'Caveat', cursive;
+      font-size: 0.85rem;
+      color: #5a3825;
+      text-align: center;
+      margin-top: 0.5rem;
+      min-height: 1.2rem; /* mantém o espaço mesmo sem texto */
+      line-height: 1.3;
+    }
+
+    /* ============================================================
+       VÍDEOS
+    ============================================================ */
+    .videos-titulo {
+      font-family: 'Fraunces', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--texto);
+      margin-bottom: 0.5rem;
+    }
+
+    .videos-subtitulo {
+      font-family: 'Caveat', cursive;
+      font-size: 1.1rem;
+      color: var(--vinho);
+      margin-bottom: 2.5rem;
+    }
+
+    .video-item {
+      margin-bottom: 2.5rem;
+    }
+
+    .video-item video {
+      width: 100%;
+      display: block;
+      background: #000;
+      border-radius: 3px;
+    }
+
+    .video-legenda {
+      font-family: 'Caveat', cursive;
+      font-size: 1rem;
+      color: var(--texto-medo);
+      margin-top: 0.5rem;
+    }
+
+    /* ============================================================
+       LIGHTBOX (ampliar foto ao clicar)
+    ============================================================ */
+    #lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 10, 5, 0.88);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      z-index: 500;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s;
+    }
+
+    #lightbox.aberto {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    #lightbox img {
+      max-width: 100%;
+      max-height: 80vh;
+      box-shadow: 0 0 40px rgba(0,0,0,0.5);
+      display: block;
+    }
+
+    #lightbox-fechar {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: #fff;
+      font-family: 'Fraunces', serif;
+      font-size: 0.9rem;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    /* ============================================================
+       RODAPÉ
+    ============================================================ */
+    .rodape {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-family: 'Caveat', cursive;
+      font-size: 1rem;
+      color: var(--borda);
+    }
+
+    /* ============================================================
+       RESPONSIVO — MOBILE (prioridade máxima)
+    ============================================================ */
+    @media (max-width: 640px) {
+
+      /* Esconde menu desktop, mostra hamburger */
+      .nav-lista { display: none; }
+      .hamburger { display: flex; }
+
+      .conteudo {
+        padding: 1.8rem 1rem 3.5rem;
+      }
+
+      .mes-titulo {
+        font-size: 1.7rem;
+      }
+
+      /* Carta com menos padding no mobile */
+      .carta {
+        padding: 2rem 1.3rem;
+      }
+
+      .carta::before {
+        margin: -2rem -1.3rem 1.5rem;
+      }
+
+      .carta::after {
+        margin: 1.5rem -1.3rem -2rem;
+      }
+
+      .carta p {
+        font-size: 0.95rem;
+      }
+
+      /* Polaroids: 2 colunas, um pouco menores */
+      .grade-polaroids {
+        gap: 1.2rem;
+      }
+
+      .polaroid {
+        width: calc(50% - 0.6rem);
+        padding: 0.55rem 0.55rem 1.8rem;
+      }
+
+    }
+
+    /* Telas muito pequenas (360px): polaroids menores */
+    @media (max-width: 380px) {
+      .polaroid {
+        padding: 0.5rem 0.5rem 1.6rem;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- ================================================================
+     NAVEGAÇÃO
+================================================================ -->
+<nav>
+  <div class="nav-inner">
+
+    <!-- Logo clicável leva ao Início -->
+    <span class="nav-logo" onclick="mostrar('inicio')">manu & davi</span>
+
+    <!-- Menu desktop -->
+    <ul class="nav-lista">
+
+      <li class="nav-item">
+        <button class="nav-link" onclick="mostrar('inicio')">Início</button>
+      </li>
+
+      <!-- 2025 com dropdown -->
+      <li class="nav-item">
+        <button class="nav-link tem-dropdown">2025</button>
+        <ul class="dropdown">
+          <li><a onclick="mostrar('2025-abril')">Abril</a></li>
+          <li><a onclick="mostrar('2025-maio')">Maio</a></li>
+          <li><a onclick="mostrar('2025-junho')">Junho</a></li>
+          <li><a onclick="mostrar('2025-julho')">Julho</a></li>
+          <li><a onclick="mostrar('2025-agosto')">Agosto</a></li>
+          <li><a onclick="mostrar('2025-setembro')">Setembro</a></li>
+          <li><a onclick="mostrar('2025-outubro')">Outubro</a></li>
+          <li><a onclick="mostrar('2025-novembro')">Novembro</a></li>
+          <li><a onclick="mostrar('2025-dezembro')">Dezembro</a></li>
+        </ul>
+      </li>
+
+      <!-- 2026 com dropdown -->
+      <li class="nav-item">
+        <button class="nav-link tem-dropdown">2026</button>
+        <ul class="dropdown">
+          <li><a onclick="mostrar('2026-janeiro')">Janeiro</a></li>
+          <li><a onclick="mostrar('2026-fevereiro')">Fevereiro</a></li>
+          <li><a onclick="mostrar('2026-marco')">Março</a></li>
+          <li><a onclick="mostrar('2026-abril')">Abril</a></li>
+          <li><a onclick="mostrar('2026-maio')">Maio</a></li>
+          <li><a onclick="mostrar('2026-junho')">Junho</a></li>
+        </ul>
+      </li>
+
+      <li class="nav-item">
+        <button class="nav-link" onclick="mostrar('videos')">Vídeos da Manu e Davi</button>
+      </li>
+
+    </ul>
+
+    <!-- Botão hambúrguer (mobile) -->
+    <button class="hamburger" id="btn-hamburger" onclick="alternarMenuMobile()" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
+
+  <!-- Menu mobile (escondido por padrão) -->
+  <div class="menu-mobile" id="menu-mobile">
+    <a onclick="mostrar('inicio'); fecharMenu()">Início</a>
+
+    <button onclick="alternarSubmobile('sub-2025')">2025 ▾</button>
+    <div class="submenu-mobile" id="sub-2025">
+      <a onclick="mostrar('2025-abril');   fecharMenu()">Abril</a>
+      <a onclick="mostrar('2025-maio');    fecharMenu()">Maio</a>
+      <a onclick="mostrar('2025-junho');   fecharMenu()">Junho</a>
+      <a onclick="mostrar('2025-julho');   fecharMenu()">Julho</a>
+      <a onclick="mostrar('2025-agosto');  fecharMenu()">Agosto</a>
+      <a onclick="mostrar('2025-setembro');fecharMenu()">Setembro</a>
+      <a onclick="mostrar('2025-outubro'); fecharMenu()">Outubro</a>
+      <a onclick="mostrar('2025-novembro');fecharMenu()">Novembro</a>
+      <a onclick="mostrar('2025-dezembro');fecharMenu()">Dezembro</a>
+    </div>
+
+    <button onclick="alternarSubmobile('sub-2026')">2026 ▾</button>
+    <div class="submenu-mobile" id="sub-2026">
+      <a onclick="mostrar('2026-janeiro');  fecharMenu()">Janeiro</a>
+      <a onclick="mostrar('2026-fevereiro');fecharMenu()">Fevereiro</a>
+      <a onclick="mostrar('2026-marco');    fecharMenu()">Março</a>
+      <a onclick="mostrar('2026-abril');    fecharMenu()">Abril</a>
+      <a onclick="mostrar('2026-maio');     fecharMenu()">Maio</a>
+      <a onclick="mostrar('2026-junho');    fecharMenu()">Junho</a>
+    </div>
+
+    <a onclick="mostrar('videos'); fecharMenu()">Vídeos da Manu e Davi</a>
+  </div>
+</nav>
+
+
+<!-- ================================================================
+     LIGHTBOX
+================================================================ -->
+<div id="lightbox">
+  <button id="lightbox-fechar" onclick="fecharLightbox()">fechar ✕</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+
+<!-- ================================================================
+     SEÇÃO: INÍCIO
+================================================================ -->
+<div id="secao-inicio" class="secao ativa">
+  <div class="conteudo">
+    <div class="carta-wrapper">
+      <p class="carta-titulo">para você</p>
+      <div class="carta">
+
+        <!--
+          ✏️ EDITAR CARTA: escreva aqui embaixo.
+          Cada <p>...</p> é um parágrafo.
+          Substitua o texto do placeholder pelo seu.
+        -->
+        <p class="texto-placeholder">
+          [O texto da carta será escrito aqui. Abra o arquivo index.html,
+          encontre este comentário e substitua este parágrafo pela sua carta.]
+        </p>
+
+        <p class="carta-assinatura">com carinho, [seu nome]</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ================================================================
+     SEÇÃO: 2025 — ABRIL
+================================================================ -->
+<div id="secao-2025-abril" class="secao">
+  <div class="conteudo">
+    <div class="mes-cabecalho">
+      <span class="mes-ano-label">2025</span>
+      <h1 class="mes-titulo">Abril</h1>
+      <div class="mes-linha"></div>
+    </div>
+
+    <div class="mes-texto">
+      <!--
+        ✏️ EDITAR TEXTO: substitua os parágrafos abaixo.
+      -->
+      <p>Foi quando a gente se "conheceu", porque eu já te conhecia umas 2 anos antes eu vi seu Instagram, vi uma foto sua e pensei: QUE MENINA LIMDA — só que eu nunca tinha te visto pessoalmente. Então, quando eu te vi no cefet pela primeira vez, lembrei de você na mesma hora, mas ainda não tinha certeza de que era você.</p>
+      <p>Então, um dia, você postou uma foto em frente ao cefet, e aí eu tive a confirmação de que era realmente você. A gente começou a conversar e tal, aí você me bloqueou, pipipi... Depois a gente voltou a conversar, e assim começou a nossa história. 😛😛</p>
+    </div>
+
+    <p class="polaroids-titulo">fotos do mês</p>
+    <div class="grade-polaroids" id="fotos-2025-abril"></div>
+  </div>
+</div>
+
+
+<!-- ================================================================
+     SEÇÃO: 2025 — MAIO
+================================================================ -->
+<div id="secao-2025-maio" class="secao">
+  <div class="conteudo">
+    <div class="mes-cabecalho">
+      <span class="mes-ano-label">2025</span>
+      <h1 class="mes-titulo">Maio</h1>
+      <div class="mes-linha"></div>
+    </div>
+
+    <div class="mes-texto">
+      <p>Foi o mês do nosso primeiro beijo, dia 25 de maio, no shopping com beijo de chocolate. A esse ponto a gente já estava quase namorando em menos de 1 mês... a gente se aproximou muito, a gente ia pra biblioteca pra ficar junto, foi o mês que teve a monitoria da Laysa, e você usou meu moletom. A gente ficou muito próximo esse mês. 🎉🎉🥳</p>
+    </div>
+
+    <p class="polaroids-titulo">fotos do mês</p>
+    <div class="grade-polaroids" id="fotos-2025-maio"></div>
+  </div>
+</div>
+
+
+<!-- ================================================================
+     SEÇÃO: 2025 — JUNHO
+================================================================ -->
+<div id="secao-2025-junho" class="secao">
+  <div class="conteudo">
+    <div class="mes-cabecalho">
+      <span class="mes-ano-label">2025</span>
+      <h1 class="mes-titulo">Junho</h1>
+      <div class="mes-linha"></div>
+    </div>
+
+    <div class="mes-texto">
+      <p>Junho foi o mês do dia dos namorados, que eu te dei um buquê e 13 ouro brancos, e você me deu uma caneca do galo e várias florzinhas de papel, que eu tenho quase todas até hoje. Também teve a festa junina no logos, foi a primeira vez que a gente ficou junto até mais tarde assim.</p>
+      <p>A gente praticamente se assumiu esse mês com a foto do buquê no instagram. E, a cada dia que passava, a gente se aproximava mais. A gente já estava namorando nesse mês — só que ainda sem um pedido de namoro oficial. 🤓🤓🐱</p>
+    </div>
+
+    <p class="polaroids-titulo">fotos do mês</p>
+    <div class="grade-polaroids" id="fotos-2025-junho"></div>
+  </div>
+</div>
+
+
+<!-- ================================================================
+     SEÇÃO: 2025 — JULHO
+================================================================ -->
+<div id="secao-2025-julho" class="secao">
+  <div class="conteudo">
+    <div class="mes-cabecalho">
+      <span class="mes-ano-label">2025</span>
+      <h1 class="mes-titulo">Julho</h1>
+      <div class="mes-linha"></div>
+    </div>
+
+    <div class="mes-texto">
+      <p>Nesse mês a gente foi comer peixe aqui em Três Pontas, aí a gente ficou na pracinha e deu beijo. Esse mês foi bem especial — foi quando a gente foi pra São João pela primeira vez, no casamento dos seus parentes. Foi nossa primeira viagem juntos, uma das melhores da minha vida.</p>
+      <p>A gente já se tratava como namorados, vivia como namorados, as pessoas tratavam a gente como namorados, mas o pedido de namoro ainda estava por vir no mês seguinte. 😛😛😛😛</p>
+    </div>
+
+    <p class="polaroids-titulo">fotos do mês</p>
+    <div class="grade-polaroids" id="fotos-2025-julho"></div>
+  </div>
+</div>
+
+
+<!-- ================================================================
+     SEÇÃO: 2025 — AGOSTO
+================================================================ -->
+<div id="secao-2025-agosto" class="secao">
+  <div class="conteudo">
+    <div class="mes-cabecalho">
+      <span class="mes-ano-label">2025</span>
+      <h1 class="mes-titulo">Agosto</h1>
+      <div class="mes-linha"></div>
+    </div>
+
+    <div class="mes-texto">
+      <p>Finalmente, o grande mês — onde aconteceu o pedido de namoro, onde a gente se tornou oficialmente namorados, com aliança e tudo. O processo foi muito caótico, começando com o tamanho da aliança, e como eu ia conseguir sem você descobrir. Eu não consegui pensar em nenhum jeito fácil, então eu só te perguntei mesmo — e ainda deu errado...</p>
+      <p>No dia que eu fui comprar o buquê, estava chovendo muito, aconteceram vários mini acidentes no caminho, mas deu tudo certo. No dia do pedido, eu tinha tudo planejado — a gente ia almoçar na casa da minha vó, meu pai ia levar a gente pro parque. O plano era falar pra você olhar pra algum passarinho e quando você olhasse de volta, mostrar a aliança... mas deu tudo errado.</p>
+      <p>A gente foi mais pra trás do parque, eu te abracei, e só te perguntei se você queria namorar comigo. Você aceitou, eu te dei a aliança, a gente se abraçou, se beijou — e meu pai, coitado, ficou esperando do lado de fora o maior tempão. Mas deu tudo certo. 😛😛😛🎉🎉🥳</p>
+    </div>
+
+    <p class="polaroids-titulo">fotos do mês</p>
+    <div class="grade-polaroids" id="fotos-2025-agosto"></div>
+  </div>
+</div>
+
+
+<!-- ================================================================
+     SEÇÃO: 2025 — SETEMBRO
+================================================================ -->
+<div id="secao-2025-setembro" class="secao">
+  <div class="conteudo">
+    <div class="mes-cabecalho">
+      <span class="mes-ano-label">2025</span>
+      <h1 class="mes-titulo">Setembro</h1>
+      <div class="mes-linha"></div>
+    </div>
+
+    <div class="mes-texto">
+      <p>Setembro não aconteceu nada de muito relevante. Foi o mês do cefestival — que a gente tirou uma das nossas melhores fotos. No começo de setembro e final de agosto a gente foi pra São João de novo, nossa segunda vez lá.</p>
+      <p>Agora além de agir como namorados, viver como namorados e se tratarem como namorados, a gente estava oficialmente namorando.</p>
+    </div>
+
+    <p class="polaroids-titulo">fotos do mês</p>
+    <div class="grade-polaroids" id="fotos-2025-setembro"></div>
+  </div>
+</div>
+
+
+<!-- ================================================================
+     SEÇÃO: 2025 — OUTUBRO
+================================================================ -->
+<div id="secao-2025-outubro" class="secao">
+  <div class="conteudo">
+    <div class="mes-cabecalho">
+      <span class="mes-ano-label">2025</span>
+      <h1 class="mes-titulo">Outubro</h1>
+      <div class="mes-linha"></div>
+    </div>
+
+    <div class="mes-texto">
+      <p>Outubro a gente foi pra São João mais uma vez — eu lembro um pouco mais dessa viagem do que a outra. A gente andou pelo centro, tirou bastante foto. Teve um sábado letivo, eu acho, com uma oficina de fotografia e a gente tirou fotos legais.</p>
+      <p>Não sei muito o que falar de outubro... não lembro de muita coisa que aconteceu. 😔</p>
+    </div>
+
+    <p class="polaroids-titulo">fotos do mês</p>
+    <div class="grade-polaroids" id="fotos-2025-outubro"></div>
+  </div>
+</div>
+
+
+<!-- ================================================================
+     SEÇÃO: 2025 — NOVEMBRO
+================================================================ -->
+<div id="secao-2025-novembro" class="secao">
+  <div class="conteudo">
+    <div class="mes-cabecalho">
+      <span class="mes-ano-label">2025</span>
+      <h1 class="mes-titulo">Novembro</h1>
+      <div class="mes-linha"></div>
+    </div>
+
+    <div class="mes-texto">
+      <p>Em novembro teve o halloween no cefestival.</p>
+    </div>
+
+    <p class="polaroids-titulo">fotos do mês</p>
+    <div class="grade-polaroids" id="fotos-2025-novembro"></div>
+  </div>
+</div>
+
+
+<!-- ================================================================
+     SEÇÃO: 2025 — DEZEMBRO
+================================================================ -->
+<div id="secao-2025-dezembro" class="secao">
+  <div class="conteudo">
+    <div class="mes-cabecalho">
+      <span class="mes-ano-label">2025</span>
+      <h1 class="mes-titulo">Dezembro</h1>
+      <div class="mes-linha"></div>
+    </div>
+
+    <div class="mes-texto">
+      <!-- ✏️ Texto ainda não fornecido -->
+      <p class="texto-placeholder">[O texto de Dezembro será adicionado em breve.]</p>
+    </div>
+
+    <p class="polaroids-titulo">fotos do mês</p>
+    <div class="grade-polaroids" id="fotos-2025-dezembro"></div>
+  </div>
+</div>
+
+
+<!-- ================================================================
+     SEÇÃO: 2026 — JANEIRO
+================================================================ -->
+<div id="secao-2026-janeiro" class="secao">
+  <div class="conteudo">
+    <div class="mes-cabecalho">
+      <span class="mes-ano-label">2026</span>
+      <h1 class="mes-titulo">Janeiro</h1>
+      <div class="mes-linha"></div>
+    </div>
+
+    <div class="mes-texto">
+      <p class="texto-placeholder">[O texto de Janeiro será adicionado em breve.]</p>
+    </div>
+
+    <p class="polaroids-titulo">fotos do mês</p>
+    <div class="grade-polaroids" id="fotos-2026-janeiro"></div>
+    <p style="font-family:'Caveat',cursive;color:var(--borda);margin-top:1rem">fotos a adicionar em breve</p>
+  </div>
+</div>
+
+
+<!-- ================================================================
+     SEÇÃO: 2026 — FEVEREIRO
+================================================================ -->
+<div id="secao-2026-fevereiro" class="secao">
+  <div class="conteudo">
+    <div class="mes-cabecalho">
+      <span class="mes-ano-label">2026</span>
+      <h1 class="mes-titulo">Fevereiro</h1>
+      <div class="mes-linha"></div>
+    </div>
+
+    <div class="mes-texto">
+      <p class="texto-placeholder">[O texto de Fevereiro será adicionado em breve.]</p>
+    </div>
+
+    <p class="polaroids-titulo">fotos do mês</p>
+    <div class="grade-polaroids" id="fotos-2026-fevereiro"></div>
+  </div>
+</div>
+
+
+<!-- ================================================================
+     SEÇÃO: 2026 — MARÇO
+================================================================ -->
+<div id="secao-2026-marco" class="secao">
+  <div class="conteudo">
+    <div class="mes-cabecalho">
+      <span class="mes-ano-label">2026</span>
+      <h1 class="mes-titulo">Março</h1>
+      <div class="mes-linha"></div>
+    </div>
+
+    <div class="mes-texto">
+      <p class="texto-placeholder">[O texto de Março será adicionado em breve.]</p>
+    </div>
+
+    <p class="polaroids-titulo">fotos do mês</p>
+    <div class="grade-polaroids" id="fotos-2026-marco"></div>
+  </div>
+</div>
+
+
+<!-- ================================================================
+     SEÇÃO: 2026 — ABRIL
+================================================================ -->
+<div id="secao-2026-abril" class="secao">
+  <div class="conteudo">
+    <div class="mes-cabecalho">
+      <span class="mes-ano-label">2026</span>
+      <h1 class="mes-titulo">Abril</h1>
+      <div class="mes-linha"></div>
+    </div>
+
+    <div class="mes-texto">
+      <p class="texto-placeholder">[O texto de Abril de 2026 será adicionado em breve.]</p>
+    </div>
+
+    <p class="polaroids-titulo">fotos do mês</p>
+    <div class="grade-polaroids" id="fotos-2026-abril"></div>
+  </div>
+</div>
+
+
+<!-- ================================================================
+     SEÇÃO: 2026 — MAIO
+================================================================ -->
+<div id="secao-2026-maio" class="secao">
+  <div class="conteudo">
+    <div class="mes-cabecalho">
+      <span class="mes-ano-label">2026</span>
+      <h1 class="mes-titulo">Maio</h1>
+      <div class="mes-linha"></div>
+    </div>
+
+    <div class="mes-texto">
+      <p class="texto-placeholder">[O texto de Maio de 2026 será adicionado em breve.]</p>
+    </div>
+
+    <p class="polaroids-titulo">fotos do mês</p>
+    <div class="grade-polaroids" id="fotos-2026-maio"></div>
+  </div>
+</div>
+
+
+<!-- ================================================================
+     SEÇÃO: 2026 — JUNHO
+================================================================ -->
+<div id="secao-2026-junho" class="secao">
+  <div class="conteudo">
+    <div class="mes-cabecalho">
+      <span class="mes-ano-label">2026</span>
+      <h1 class="mes-titulo">Junho</h1>
+      <div class="mes-linha"></div>
+    </div>
+
+    <div class="mes-texto">
+      <p class="texto-placeholder">[O texto de Junho de 2026 será adicionado em breve.]</p>
+    </div>
+
+    <p class="polaroids-titulo">fotos do mês</p>
+    <div class="grade-polaroids" id="fotos-2026-junho"></div>
+    <p style="font-family:'Caveat',cursive;color:var(--borda);margin-top:1rem">fotos a adicionar em breve</p>
+  </div>
+</div>
+
+
+<!-- ================================================================
+     SEÇÃO: VÍDEOS DA MANU E DAVI
+================================================================ -->
+<div id="secao-videos" class="secao">
+  <div class="conteudo">
+    <h1 class="videos-titulo">Vídeos da Manu e Davi</h1>
+    <p class="videos-subtitulo">momentos em movimento</p>
+
+    <!--
+      ✏️ Para editar as legendas dos vídeos,
+         troque o texto dentro de cada .video-legenda abaixo.
+    -->
+
+    <!--
+      ✏️ Para trocar este vídeo: substitua o ID no src abaixo.
+      O ID é a parte do link do Drive entre /d/ e /view
+    -->
+    <div class="video-item">
+      <iframe
+        src="https://drive.google.com/file/d/1_mpeY9MkWnWxIBtMgeTkmJeCCqxmvXNs/preview"
+        width="100%"
+        height="360"
+        allow="autoplay"
+        allowfullscreen
+        style="border:none;display:block;border-radius:3px">
+      </iframe>
+      <p class="video-legenda">[legenda do vídeo 1]</p>
+    </div>
+
+    <!--
+      ✏️ Para trocar este vídeo: substitua o ID no src abaixo.
+      O ID é a parte do link do Drive entre /d/ e /view
+    -->
+    <div class="video-item">
+      <iframe
+        src="https://drive.google.com/file/d/1Sv76PhtD3uZEu36L7vYhFXak_gpt4dea/preview"
+        width="100%"
+        height="360"
+        allow="autoplay"
+        allowfullscreen
+        style="border:none;display:block;border-radius:3px">
+      </iframe>
+      <p class="video-legenda">[legenda do vídeo 2]</p>
+    </div>
+
+    <!--
+      ✏️ Para trocar este vídeo: substitua o ID no src abaixo.
+      O ID é a parte do link do Drive entre /d/ e /view
+    -->
+    <div class="video-item">
+      <iframe
+        src="https://drive.google.com/file/d/19LsoRpaZmrEvu7iUNpRFXsdS_VTQdhea/preview"
+        width="100%"
+        height="360"
+        allow="autoplay"
+        allowfullscreen
+        style="border:none;display:block;border-radius:3px">
+      </iframe>
+      <p class="video-legenda">[legenda do vídeo 3]</p>
+    </div>
+
+    <!--
+      ✏️ Para trocar este vídeo: substitua o ID no src abaixo.
+      O ID é a parte do link do Drive entre /d/ e /view
+    -->
+    <div class="video-item">
+      <iframe
+        src="https://drive.google.com/file/d/1ewpbBUrlmNmr4PmfjzM5nl8wkh10MQko/preview"
+        width="100%"
+        height="360"
+        allow="autoplay"
+        allowfullscreen
+        style="border:none;display:block;border-radius:3px">
+      </iframe>
+      <p class="video-legenda">[legenda do vídeo 4]</p>
+    </div>
+
+    <!--
+      ✏️ Para trocar este vídeo: substitua o ID no src abaixo.
+      O ID é a parte do link do Drive entre /d/ e /view
+    -->
+    <div class="video-item">
+      <iframe
+        src="https://drive.google.com/file/d/1NdMq1gxZM6CSo4J94ny4oGysbwvabBZU/preview"
+        width="100%"
+        height="360"
+        allow="autoplay"
+        allowfullscreen
+        style="border:none;display:block;border-radius:3px">
+      </iframe>
+      <p class="video-legenda">[legenda do vídeo 5]</p>
+    </div>
+
+  </div>
+</div>
+
+
+<footer class="rodape">manu & davi · feito com carinho</footer>
+
+
+<!-- ================================================================
+     JAVASCRIPT
+================================================================ -->
+<script>
+
+  /* ==============================================================
+     FOTOS — ORGANIZADAS POR MÊS
+     
+     ✏️ COMO EDITAR:
+     - "arquivo": nome do arquivo dentro da pasta fotos/
+     - "legenda": texto que aparece embaixo da polaroid
+       (deixe "" para não ter legenda)
+     
+     ✏️ COMO ADICIONAR UMA FOTO:
+     1. Coloque o arquivo .jpg na pasta fotos/
+     2. Adicione uma linha:  { arquivo: "nome.jpg", legenda: "" },
+        no array do mês correto
+  ============================================================== */
+
+  /* ---------- 2025 ---------- */
+
+  var fotos_2025_abril = [
+    { arquivo: "IMG_20250423_184924_544.jpg", legenda: "" }
+  ];
+
+  var fotos_2025_maio = [
+    { arquivo: "SGCAM_20250510_121851587.jpg", legenda: "" },
+    { arquivo: "IMG-20250514-WA0091.jpg",      legenda: "" }
+  ];
+
+  var fotos_2025_junho = [
+    { arquivo: "IMG-20250613-WA0015.jpg",   legenda: "" },
+    { arquivo: "IMG_20250621_112542839.jpg", legenda: "" },
+    { arquivo: "IMG_20250621_113927624.jpg", legenda: "" },
+    { arquivo: "IMG-20250621-WA0195.jpg",   legenda: "" },
+    { arquivo: "IMG-20250627-WA0105.jpg",   legenda: "" }
+  ];
+
+  var fotos_2025_julho = [
+    { arquivo: "SGCAM_20250706_174239906.jpg", legenda: "" },
+    { arquivo: "IMG-20250714-WA0063.jpg",      legenda: "" },
+    { arquivo: "IMG-20250714-WA0074.jpg",      legenda: "" },
+    { arquivo: "IMG-20250719-WA0064.jpg",      legenda: "" },
+    { arquivo: "SGCAM_20250719_111557148.jpg", legenda: "" },
+    { arquivo: "SGCAM_20250719_133309966.jpg", legenda: "" }
+  ];
+
+  var fotos_2025_agosto = [
+    { arquivo: "IMG-20250809-WA0110.jpg",         legenda: "" },
+    { arquivo: "IMG-20250809-WA0112.jpg",         legenda: "" },
+    { arquivo: "SGCAM_20250816_195238184.jpg",     legenda: "" },
+    { arquivo: "IMG_20250829_190205079_HDR.jpg",   legenda: "" },
+    { arquivo: "IMG_20250829_190253150_HDR.jpg",   legenda: "" }
+  ];
+
+  var fotos_2025_setembro = [
+    { arquivo: "IMG-20250909-WA0055-2.jpg",  legenda: "" },
+    { arquivo: "IMG_20250928_174507574.jpg",  legenda: "" }
+  ];
+
+  var fotos_2025_outubro = [
+    { arquivo: "original_7fe55f17-f4cc-4cb1-b7d0-c8fc01c396fe_IMG-20251013-WA0050.jpg", legenda: "" },
+    { arquivo: "20251031092647995.jpg",                                                   legenda: "" }
+  ];
+
+  var fotos_2025_novembro = [
+    { arquivo: "IMG_20251114_173140065_HDR.jpg", legenda: "" },
+    { arquivo: "IMG_20251114_173149217_HDR.jpg", legenda: "" },
+    { arquivo: "20251117213752198.jpg",           legenda: "" },
+    { arquivo: "IMG_20251130_194854441_HDR.jpg", legenda: "" }
+  ];
+
+  var fotos_2025_dezembro = [
+    { arquivo: "IMG_20251213_112536207_HDR.jpg", legenda: "" },
+    { arquivo: "IMG_20251214_083658178_HDR.jpg", legenda: "" },
+    { arquivo: "20251226221352566.jpg",           legenda: "" }
+  ];
+
+  /* ---------- 2026 ---------- */
+
+  var fotos_2026_janeiro = [
+    /* sem fotos identificadas para este mês */
+  ];
+
+  var fotos_2026_fevereiro = [
+    { arquivo: "IMG_20260209_150915660_HDR_AE.jpg", legenda: "" },
+    { arquivo: "IMG_20260209_153623000_AE.jpg",     legenda: "" },
+    { arquivo: "IMG_20260215_172217698_HDR.jpg",    legenda: "" }
+  ];
+
+  var fotos_2026_marco = [
+    { arquivo: "IMG_20260301_133122212.jpg",      legenda: "" },
+    { arquivo: "IMG_20260301_183038773.jpg",      legenda: "" },
+    { arquivo: "IMG_20260328_165257022_HDR.jpg",  legenda: "" },
+    { arquivo: "IMG_20260328_165319426_HDR.jpg",  legenda: "" }
+  ];
+
+  var fotos_2026_abril = [
+    { arquivo: "IMG_20260402_194842625.jpg", legenda: "" },
+    { arquivo: "IMG_20260402_194848159.jpg", legenda: "" },
+    { arquivo: "20260425_103323.jpg",        legenda: "" },
+    { arquivo: "20260425_103324.jpg",        legenda: "" },
+    { arquivo: "20260427_154326.jpg",        legenda: "" }
+  ];
+
+  var fotos_2026_maio = [
+    { arquivo: "IMG_20260502_144050417_HDR.jpg", legenda: "" },
+    { arquivo: "IMG_20260502_182348964.jpg",     legenda: "" }
+  ];
+
+  var fotos_2026_junho = [
+    /* sem fotos identificadas para este mês ainda */
+  ];
+
+
+  /* ==============================================================
+     FUNÇÃO QUE DESENHA AS POLAROIDS NA TELA
+     (não precisa editar aqui)
+  ============================================================== */
+  function renderizarFotos(arrayFotos, idContainer) {
+    var container = document.getElementById(idContainer);
+    if (!container) return;
+
+    if (arrayFotos.length === 0) {
+      container.innerHTML = '<p style="font-family:\'Caveat\',cursive;color:var(--borda)">fotos a adicionar em breve</p>';
+      return;
+    }
+
+    var html = '';
+    for (var i = 0; i < arrayFotos.length; i++) {
+      var foto = arrayFotos[i];
+      html += '<div class="polaroid" onclick="abrirLightbox(\'fotos/' + foto.arquivo + '\')">';
+      html += '<img src="fotos/' + foto.arquivo + '" alt="' + foto.legenda + '" loading="lazy">';
+      html += '<p class="polaroid-legenda">' + foto.legenda + '</p>';
+      html += '</div>';
+    }
+    container.innerHTML = html;
+  }
+
+  /* Renderiza todas as galerias ao carregar a página */
+  renderizarFotos(fotos_2025_abril,     'fotos-2025-abril');
+  renderizarFotos(fotos_2025_maio,      'fotos-2025-maio');
+  renderizarFotos(fotos_2025_junho,     'fotos-2025-junho');
+  renderizarFotos(fotos_2025_julho,     'fotos-2025-julho');
+  renderizarFotos(fotos_2025_agosto,    'fotos-2025-agosto');
+  renderizarFotos(fotos_2025_setembro,  'fotos-2025-setembro');
+  renderizarFotos(fotos_2025_outubro,   'fotos-2025-outubro');
+  renderizarFotos(fotos_2025_novembro,  'fotos-2025-novembro');
+  renderizarFotos(fotos_2025_dezembro,  'fotos-2025-dezembro');
+  renderizarFotos(fotos_2026_janeiro,   'fotos-2026-janeiro');
+  renderizarFotos(fotos_2026_fevereiro, 'fotos-2026-fevereiro');
+  renderizarFotos(fotos_2026_marco,     'fotos-2026-marco');
+  renderizarFotos(fotos_2026_abril,     'fotos-2026-abril');
+  renderizarFotos(fotos_2026_maio,      'fotos-2026-maio');
+  renderizarFotos(fotos_2026_junho,     'fotos-2026-junho');
+
+
+  /* ==============================================================
+     NAVEGAÇÃO ENTRE SEÇÕES
+  ============================================================== */
+  function mostrar(id) {
+    /* Esconde todas as seções */
+    var secoes = document.querySelectorAll('.secao');
+    for (var i = 0; i < secoes.length; i++) {
+      secoes[i].classList.remove('ativa');
+    }
+    /* Mostra a seção pedida */
+    var alvo = document.getElementById('secao-' + id);
+    if (alvo) {
+      alvo.classList.add('ativa');
+      window.scrollTo(0, 0);
+    }
+  }
+
+
+  /* ==============================================================
+     MENU HAMBÚRGUER (mobile)
+  ============================================================== */
+  function alternarMenuMobile() {
+    var menu = document.getElementById('menu-mobile');
+    menu.classList.toggle('aberto');
+  }
+
+  function fecharMenu() {
+    var menu = document.getElementById('menu-mobile');
+    menu.classList.remove('aberto');
+  }
+
+  function alternarSubmobile(id) {
+    var sub = document.getElementById(id);
+    sub.classList.toggle('aberto');
+  }
+
+
+  /* ==============================================================
+     LIGHTBOX — ampliar foto
+  ============================================================== */
+  function abrirLightbox(src) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').classList.add('aberto');
+  }
+
+  function fecharLightbox() {
+    document.getElementById('lightbox').classList.remove('aberto');
+  }
+
+  /* Fechar lightbox ao clicar fora da imagem */
+  document.getElementById('lightbox').addEventListener('click', function(e) {
+    if (e.target === this) fecharLightbox();
+  });
+
+</script>
+</body>
+</html>
