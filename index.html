@@ -967,10 +967,12 @@
   </div>
 
   <!-- foto surpresa -->
-  <div class="polaroid foto-surpresa" onclick="this.classList.add('revelada')">
-    <span class="texto-surpresa">shhh</span>
-    <img src="fotos/IMG_20260127_091842366_AEfotos.jpg" alt="">
+  <div class="polaroid foto-surpresa" id="surpresa-janeiro">
+    <span class="texto-surpresa" onclick="revelarSurpresa('surpresa-janeiro')">shhh</span>
+    <img src="fotos/IMG_20260127_091842366_AEfotos.jpg" alt=""
+         onclick="abrirLightbox('fotos/IMG_20260127_091842366_AEfotos.jpg')">
     <p class="polaroid-legenda">eu e voce hehehehe</p>
+    <span class="btn-esconder" onclick="esconderSurpresa('surpresa-janeiro')">esconder ↑</span>
   </div>
 
 </div>
@@ -1316,6 +1318,9 @@
     var container = document.getElementById(idContainer);
     if (!container) return;
 
+    /* Se o container já tiver conteúdo manual, não sobrescreve */
+    if (container.children.length > 0) return;
+
     if (arrayFotos.length === 0) {
       container.innerHTML = '<p style="font-family:\'Caveat\',cursive;color:var(--borda)">fotos a adicionar em breve</p>';
       return;
@@ -1390,6 +1395,15 @@
   /* ==============================================================
      LIGHTBOX — ampliar foto
   ============================================================== */
+  /* Foto surpresa — revelar e esconder */
+  function revelarSurpresa(id) {
+    document.getElementById(id).classList.add('revelada');
+  }
+
+  function esconderSurpresa(id) {
+    document.getElementById(id).classList.remove('revelada');
+  }
+
   function abrirLightbox(src) {
     document.getElementById('lightbox-img').src = src;
     document.getElementById('lightbox').classList.add('aberto');
