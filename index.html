@@ -449,24 +449,11 @@
       margin-bottom: 2.5rem;
     }
 
-    /* Wrapper responsivo 16:9 — funciona em qualquer tamanho de tela */
-    .video-wrapper {
-      position: relative;
+    .video-item video {
       width: 100%;
-      padding-bottom: 56.25%; /* proporção 16:9 */
-      height: 0;
-      overflow: hidden;
-      border-radius: 3px;
+      display: block;
       background: #000;
-    }
-
-    .video-wrapper iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
+      border-radius: 3px;
     }
 
     .video-legenda {
@@ -1060,15 +1047,82 @@
       O ID é a parte do link do Drive entre /d/ e /view
     -->
     <div class="video-item">
-      <div class="video-wrapper">
-        <iframe
-          src="https://drive.google.com/file/d/1_mpeY9MkWnWxIBtMgeTkmJeCCqxmvXNs/preview"
-          allow="autoplay"
-          allowfullscreen>
-        </iframe>
-      </div>
+      <iframe
+        src="https://drive.google.com/file/d/1_mpeY9MkWnWxIBtMgeTkmJeCCqxmvXNs/preview"
+        width="100%"
+        height="360"
+        allow="autoplay"
+        allowfullscreen
+        style="border:none;display:block;border-radius:3px">
+      </iframe>
       <p class="video-legenda">[legenda do vídeo 1]</p>
     </div>
+
+    <!--
+      ✏️ Para trocar este vídeo: substitua o ID no src abaixo.
+      O ID é a parte do link do Drive entre /d/ e /view
+    -->
+    <div class="video-item">
+      <iframe
+        src="https://drive.google.com/file/d/1Sv76PhtD3uZEu36L7vYhFXak_gpt4dea/preview"
+        width="100%"
+        height="360"
+        allow="autoplay"
+        allowfullscreen
+        style="border:none;display:block;border-radius:3px">
+      </iframe>
+      <p class="video-legenda">[legenda do vídeo 2]</p>
+    </div>
+
+    <!--
+      ✏️ Para trocar este vídeo: substitua o ID no src abaixo.
+      O ID é a parte do link do Drive entre /d/ e /view
+    -->
+    <div class="video-item">
+      <iframe
+        src="https://drive.google.com/file/d/19LsoRpaZmrEvu7iUNpRFXsdS_VTQdhea/preview"
+        width="100%"
+        height="360"
+        allow="autoplay"
+        allowfullscreen
+        style="border:none;display:block;border-radius:3px">
+      </iframe>
+      <p class="video-legenda">[legenda do vídeo 3]</p>
+    </div>
+
+    <!--
+      ✏️ Para trocar este vídeo: substitua o ID no src abaixo.
+      O ID é a parte do link do Drive entre /d/ e /view
+    -->
+    <div class="video-item">
+      <iframe
+        src="https://drive.google.com/file/d/1ewpbBUrlmNmr4PmfjzM5nl8wkh10MQko/preview"
+        width="100%"
+        height="360"
+        allow="autoplay"
+        allowfullscreen
+        style="border:none;display:block;border-radius:3px">
+      </iframe>
+      <p class="video-legenda">[legenda do vídeo 4]</p>
+    </div>
+
+    <!--
+      ✏️ Para trocar este vídeo: substitua o ID no src abaixo.
+      O ID é a parte do link do Drive entre /d/ e /view
+    -->
+    <div class="video-item">
+      <iframe
+        src="https://drive.google.com/file/d/1NdMq1gxZM6CSo4J94ny4oGysbwvabBZU/preview"
+        width="100%"
+        height="360"
+        allow="autoplay"
+        allowfullscreen
+        style="border:none;display:block;border-radius:3px">
+      </iframe>
+      <p class="video-legenda">[legenda do vídeo 5]</p>
+    </div>
+
+  </div>
 </div>
 
 
