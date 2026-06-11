@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Manu e Davi 💙</title>
+  <title>Manu e Davi 💜</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Caveat:wght@400;600&family=Newsreader:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
@@ -373,7 +373,7 @@
     ============================================================ */
     .polaroids-titulo {
       font-family: 'Caveat', cursive;
-      font-size: 1rem;
+      font-size: 2rem;
       color: var(--vinho);
       margin-bottom: 1.4rem;
       letter-spacing: 0.03em;
@@ -419,7 +419,7 @@
     /* Legenda embaixo da polaroid — edite no JavaScript */
     .polaroid-legenda {
       font-family: 'Caveat', cursive;
-      font-size: 0.85rem;
+      font-size: 1.5rem;
       color: #5a3825;
       text-align: center;
       margin-top: 0.5rem;
@@ -569,8 +569,24 @@
         padding: 0.5rem 0.5rem 1.6rem;
       }
     }
-
-  </style>
+      /* ============================================================
+        fotos escondidas
+      ============================================================ */
+    .foto-surpresa { cursor: pointer; }
+    .foto-surpresa img { display: none; }
+    .foto-surpresa.revelada img { display: block; }
+    .foto-surpresa .texto-surpresa {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      aspect-ratio: 1/1;
+      width: 100%;
+      font-family: 'Caveat', cursive;
+      font-size: 1rem;
+      color: var(--borda);
+  }
+    .foto-surpresa.revelada .texto-surpresa { display: none; }
+    </style>
 </head>
 <body>
 
@@ -690,11 +706,13 @@
           Substitua o texto do placeholder pelo seu.
         -->
         <p class="texto-placeholder">
-          [O texto da carta será escrito aqui. Abra o arquivo index.html,
-          encontre este comentário e substitua este parágrafo pela sua carta.]
+          Esse é o seu presente de dia dos namorados meu amor, foi feito com todo o meu carinho, para te mostrar o 
+          quanto eu te amo e todo o meu carinho por você, esse site passa por todos os nossos meses, 
+          e relembro os acontecimentos importantes que aconteceram nesse mês (ou eu tento lembrar), 
+          espero que eu não tenha deixado nada de importante passar, eu te amo espero que goste
         </p>
 
-        <p class="carta-assinatura">com carinho, [seu nome]</p>
+        <p class="carta-assinatura">com amor, Davi</p>
       </div>
     </div>
   </div>
@@ -716,8 +734,9 @@
       <!--
         ✏️ EDITAR TEXTO: substitua os parágrafos abaixo.
       -->
-      <p>Foi quando a gente se "conheceu", porque eu já te conhecia umas 2 anos antes eu vi seu Instagram, vi uma foto sua e pensei: QUE MENINA LIMDA — só que eu nunca tinha te visto pessoalmente. Então, quando eu te vi no cefet pela primeira vez, lembrei de você na mesma hora, mas ainda não tinha certeza de que era você.</p>
-      <p>Então, um dia, você postou uma foto em frente ao cefet, e aí eu tive a confirmação de que era realmente você. A gente começou a conversar e tal, aí você me bloqueou, pipipi... Depois a gente voltou a conversar, e assim começou a nossa história. 😛😛</p>
+      <p>Foi quando a gente se "conheceu", porque eu já te conhecia dofjweofjiosdof. Uns 2 anos antes eu vi seu Instagram, vi uma foto sua e pensei: QUE MENINA LIMDA só que eu nunca tinha te visto pessoalmente.  </p>
+      <p> Então, quando eu te vi no cefet pela primeira vez, lembrei de você na mesma hora, mas ainda não tinha certeza de que era você😭😭😭 Então, um dia, você postou uma foto em frente ao cefet, e aí eu tive a confirmação de que era realmente você. A gente começou a conversar e tal, aí você me bloqueou, pipipi... 
+        Depois a gente voltou a conversar, e assim começou a nossa história😛😛</p>
     </div>
 
     <p class="polaroids-titulo">fotos do mês</p>
@@ -738,7 +757,8 @@
     </div>
 
     <div class="mes-texto">
-      <p>Foi o mês do nosso primeiro beijo, dia 25 de maio, no shopping com beijo de chocolate. A esse ponto a gente já estava quase namorando em menos de 1 mês... a gente se aproximou muito, a gente ia pra biblioteca pra ficar junto, foi o mês que teve a monitoria da Laysa, e você usou meu moletom. A gente ficou muito próximo esse mês. 🎉🎉🥳</p>
+      <p>Foi o mês do nosso primeiro beijo dia 25 de maio, no shopping com beijo de chocolate. A esse ponto a gente já estava quase namorando em menos de 1 mês... a gente se aproximou muito, 
+        a gente ia pra biblioteca pra ficar junto, foi o mês que teve a monitoria da Laysa, e você usou meu moletom, a gente ficou muito próximo esse mês🎉🎉🥳  </p>
     </div>
 
     <p class="polaroids-titulo">fotos do mês</p>
@@ -759,8 +779,10 @@
     </div>
 
     <div class="mes-texto">
-      <p>Junho foi o mês do dia dos namorados, que eu te dei um buquê e 13 ouro brancos, e você me deu uma caneca do galo e várias florzinhas de papel, que eu tenho quase todas até hoje. Também teve a festa junina no logos, foi a primeira vez que a gente ficou junto até mais tarde assim.</p>
-      <p>A gente praticamente se assumiu esse mês com a foto do buquê no instagram. E, a cada dia que passava, a gente se aproximava mais. A gente já estava namorando nesse mês — só que ainda sem um pedido de namoro oficial. 🤓🤓🐱</p>
+      <p>Junho foi o mês dos dias do namorados, que eu te dei um buquê e 13 ouro brancos, e você me deu uma caneca do galo e varias 
+        florzinha de papel, que eu tenho quase todas até hoje, também teve a festa junina no logos, foi a primeira vez que a gente ficou 
+        junto ate mais tarde assim, a gente praticamente se assumiu esse mês com a foto do buquê no instagram. E, a cada dia que passava, 
+        a gente se aproximava mais. A gente já estava namorando nesse mês(só que ainda sem um pedido de namoro oficial)🤓🤓🐱</p>
     </div>
 
     <p class="polaroids-titulo">fotos do mês</p>
@@ -781,8 +803,10 @@
     </div>
 
     <div class="mes-texto">
-      <p>Nesse mês a gente foi comer peixe aqui em Três Pontas, aí a gente ficou na pracinha e deu beijo. Esse mês foi bem especial — foi quando a gente foi pra São João pela primeira vez, no casamento dos seus parentes. Foi nossa primeira viagem juntos, uma das melhores da minha vida.</p>
-      <p>A gente já se tratava como namorados, vivia como namorados, as pessoas tratavam a gente como namorados, mas o pedido de namoro ainda estava por vir no mês seguinte. 😛😛😛😛</p>
+      <p>Nesse mês a gente foi comer peixe aqui em três pontas, ai a gente ficou na pracinha, e deu beijo. Esse mês foi bem especial, 
+        foi quando a gente foi pra são joão pela primeira vez, no casamento dos seus parentes. Foi nossa primeira viagem juntos,
+         uma das melhores da minha vida. A gente já se tratava como namorados, vivia como namorados, 
+        as pessoas tratavam a gente como namorados, mas o pedido de namoro ainda estava por vir no mês seguinte😛😛😛😛😛😛😛</p>
     </div>
 
     <p class="polaroids-titulo">fotos do mês</p>
@@ -803,9 +827,15 @@
     </div>
 
     <div class="mes-texto">
-      <p>Finalmente, o grande mês — onde aconteceu o pedido de namoro, onde a gente se tornou oficialmente namorados, com aliança e tudo. O processo foi muito caótico, começando com o tamanho da aliança, e como eu ia conseguir sem você descobrir. Eu não consegui pensar em nenhum jeito fácil, então eu só te perguntei mesmo — e ainda deu errado...</p>
-      <p>No dia que eu fui comprar o buquê, estava chovendo muito, aconteceram vários mini acidentes no caminho, mas deu tudo certo. No dia do pedido, eu tinha tudo planejado — a gente ia almoçar na casa da minha vó, meu pai ia levar a gente pro parque. O plano era falar pra você olhar pra algum passarinho e quando você olhasse de volta, mostrar a aliança... mas deu tudo errado.</p>
-      <p>A gente foi mais pra trás do parque, eu te abracei, e só te perguntei se você queria namorar comigo. Você aceitou, eu te dei a aliança, a gente se abraçou, se beijou — e meu pai, coitado, ficou esperando do lado de fora o maior tempão. Mas deu tudo certo. 😛😛😛🎉🎉🥳</p>
+      <p>finalmente, o grande mês, onde aconteceu o pedido de namoro, onde a gente se tornou oficialmente namorados, 
+        com aliança e tudo. O processo do pedido de namoro foi muito caótico, começando com o tamanho da aliança, 
+        e como eu ia conseguir sem você descobrir, eu não consegui pensar em nenhum jeito fácil, então eu só te perguntei mesmo,
+        e ainda deu errado.... no dia que eu fui comprar o buquê, estava chovendo muito, aconteceu vários mini acidentes no caminho,
+        mas deu tudo certo. No dia do pedido, eu tinha tudo planejado, a gente ia almoçar na casa da minha vó, meu pai ia levar a gente
+        pro parque, eu ia te levar pra um lugar que eu já tinha olhado antes e o plano recomendado pela ana luiza machado de mello era falar 
+        pra você pra algum passarinho e quando você olhasse de volta, era pra mostrar a aliança, mas deu tudo errado, a gente foi mais pra trás do 
+        parque eu te abracei, e só te perguntei se você queria namorar comigo, você aceitou eu te dei a aliança a gente se abraçou se beijou, e deu tudo certo,
+        e o meu pai coitado ficou esperando do lado de fora do parque o maior tempão, mas deu tudo certo😛😛😛🎉🎉🥳</p>
     </div>
 
     <p class="polaroids-titulo">fotos do mês</p>
@@ -826,8 +856,10 @@
     </div>
 
     <div class="mes-texto">
-      <p>Setembro não aconteceu nada de muito relevante. Foi o mês do cefestival — que a gente tirou uma das nossas melhores fotos. No começo de setembro e final de agosto a gente foi pra São João de novo, nossa segunda vez lá.</p>
-      <p>Agora além de agir como namorados, viver como namorados e se tratarem como namorados, a gente estava oficialmente namorando.</p>
+      <p>setembro não aconteceu nada de muito relevante, foi o mês do cefestival que a gente tirou uma 
+        das nossas melhores fotos, no começo de setembro e final de agosto a gente foi pra são joão de 
+        novo, a nossa segunda vez la. agora além de agir como namorados, 
+        viver como namorados, e tratarem a gente como namorados, a gente estava oficialmente namorando</p>
     </div>
 
     <p class="polaroids-titulo">fotos do mês</p>
@@ -848,8 +880,9 @@
     </div>
 
     <div class="mes-texto">
-      <p>Outubro a gente foi pra São João mais uma vez — eu lembro um pouco mais dessa viagem do que a outra. A gente andou pelo centro, tirou bastante foto. Teve um sábado letivo, eu acho, com uma oficina de fotografia e a gente tirou fotos legais.</p>
-      <p>Não sei muito o que falar de outubro... não lembro de muita coisa que aconteceu. 😔</p>
+      <p>outubro a gente foi pra são joão mais uma vez, eu lembro um pouco mais dessa viagem do que  outra, nessa 
+        a gente andou pelo centro tirou bastante foto, teve um sábado letivo eu acho, que teve uma oficina de fotografia
+         e a gente tirou fotos legais, não sei o que falar de outubro…. não lembro de muita coisa que aconteceu😔 </p>
     </div>
 
     <p class="polaroids-titulo">fotos do mês</p>
@@ -870,7 +903,9 @@
     </div>
 
     <div class="mes-texto">
-      <p>Em novembro teve o halloween no cefestival.</p>
+      <p>Em novembro teve o halloween que a gente tentou ir de fantasia combinando pipipi, mas foi muito divertido, 
+        teve o cefestival que a gente tirou uma das nossas melhores fotos juntos, 
+        a gente foi pra caxambu, a gente andou no parque, almoçou, foi uma viagem bem legal. Foi um mês divertido</p>
     </div>
 
     <p class="polaroids-titulo">fotos do mês</p>
@@ -892,11 +927,16 @@
 
     <div class="mes-texto">
       <!-- ✏️ Texto ainda não fornecido -->
-      <p class="texto-placeholder">[O texto de Dezembro será adicionado em breve.]</p>
+      <p class="mes-texto">dezembro foi um mês que aconteceu muita coisa legal, a gente foi pra bh fazer a prova da ufmg, 
+        ficou em um hotel muito legal, a viagem foi legal, ir fazer a prova foi legal, foi tudo muito foda. A gente foi passar uma
+        semana em sao joao, no natal, acho que foi o periodo que a gente ficou mais tempo junto, 
+        depois voce veio passar o ano novo aqui, e no geral foi um mes muito foda, aconteceu muita coisa legal entre a gente</p>
     </div>
 
     <p class="polaroids-titulo">fotos do mês</p>
     <div class="grade-polaroids" id="fotos-2025-dezembro"></div>
+  </div>
+</div>
   </div>
 </div>
 
@@ -913,12 +953,27 @@
     </div>
 
     <div class="mes-texto">
-      <p class="texto-placeholder">[O texto de Janeiro será adicionado em breve.]</p>
+      <p class="mes-texto">janeiro começou bem, com a gente juntos, nós nos vimos pouco esse mês, 
+        por conta das férias, mas isso de maneira alguma nos afetou, seguimos firme e fortes</p>
     </div>
 
     <p class="polaroids-titulo">fotos do mês</p>
-    <div class="grade-polaroids" id="fotos-2026-janeiro"></div>
-    <p style="font-family:'Caveat',cursive;color:var(--borda);margin-top:1rem">fotos a adicionar em breve</p>
+    <div class="grade-polaroids" id="fotos-2026-janeiro">
+
+  <!-- foto normal -->
+  <div class="polaroid" onclick="abrirLightbox('fotos/IMG_20251231_210235011.jpg')">
+    <img src="fotos/IMG_20251231_210235011.jpg" alt="">
+    <p class="polaroid-legenda">a gente primeiro de janeiro na minha casa</p>
+  </div>
+
+  <!-- foto surpresa -->
+  <div class="polaroid foto-surpresa" onclick="this.classList.add('revelada')">
+    <span class="texto-surpresa">shhh</span>
+    <img src="fotos/IMG_20260127_091842366_AEfotos.jpg" alt="">
+    <p class="polaroid-legenda">eu e voce hehehehe</p>
+  </div>
+
+</div>
   </div>
 </div>
 
@@ -935,7 +990,9 @@
     </div>
 
     <div class="mes-texto">
-      <p class="texto-placeholder">[O texto de Fevereiro será adicionado em breve.]</p>
+      <p class="mes-texto">esse mês teve o meu aniversário que a gente passou na minha casa, a gente foi assistir a 
+        empregada no cinema, impressionante como ver filme no cinema é muito melhor, também teve o carnaval, nosso 
+        primeiro carnaval junto e foi extremamente divertido</p>
     </div>
 
     <p class="polaroids-titulo">fotos do mês</p>
@@ -956,7 +1013,8 @@
     </div>
 
     <div class="mes-texto">
-      <p class="texto-placeholder">[O texto de Março será adicionado em breve.]</p>
+      <p class="mes-texto">esse mês a gente foi comer no lagoa, um almoço bem gostoso, depois a gente veio tomar
+         sorvete em tres pontas, eu não lembro de muitas coisas que aconteceram esse mês piipip</p>
     </div>
 
     <p class="polaroids-titulo">fotos do mês</p>
@@ -977,9 +1035,10 @@
     </div>
 
     <div class="mes-texto">
-      <p class="texto-placeholder">[O texto de Abril de 2026 será adicionado em breve.]</p>
+      <p class="mes-texto">abril o show de rock nacional, nosso primeiro show de rock, foi MUITO divertido. 
+        Teve o aniversário da lívia que a gente tirou provavelmente a 
+        melhor foto nossa juntos, e a gente comeu pizza, e jogou jogo de luta no flipper, foi muito divertido</p>
     </div>
-
     <p class="polaroids-titulo">fotos do mês</p>
     <div class="grade-polaroids" id="fotos-2026-abril"></div>
   </div>
@@ -998,7 +1057,9 @@
     </div>
 
     <div class="mes-texto">
-      <p class="texto-placeholder">[O texto de Maio de 2026 será adicionado em breve.]</p>
+      <p class="mes-texto">maio a gente assistiu devoradores de estrelas, um dos melhor filme do mundo de todos os 
+        filmes do mundo inteiro, e um dos principais eventos do ano: 
+        a gente foi no show do slipknot. Foi muito foda, nosso primeiro show sozinhos, foi divertido prs crlh</p>
     </div>
 
     <p class="polaroids-titulo">fotos do mês</p>
@@ -1019,7 +1080,7 @@
     </div>
 
     <div class="mes-texto">
-      <p class="texto-placeholder">[O texto de Junho de 2026 será adicionado em breve.]</p>
+      <p class="mes-texto">fazer junto</p>
     </div>
 
     <p class="polaroids-titulo">fotos do mês</p>
@@ -1151,96 +1212,99 @@
   /* ---------- 2025 ---------- */
 
   var fotos_2025_abril = [
-    { arquivo: "IMG_20250423_184924_544.jpg", legenda: "" }
+    { arquivo: "IMG_20250423_184924_544.jpg", legenda: "nossa primeira foto no biblioteca" }
   ];
 
   var fotos_2025_maio = [
-    { arquivo: "SGCAM_20250510_121851587.jpg", legenda: "" },
-    { arquivo: "IMG-20250514-WA0091.jpg",      legenda: "" }
+    { arquivo: "SGCAM_20250510_121851587.jpg", legenda: "foto que eu tirei quando voce tava dormindo no onibus(eu sabia que voce tava acordada)" },
+    { arquivo: "IMG-20250514-WA0091.jpg",      legenda: "foto nossa na monitoria de fisica" }
   ];
 
   var fotos_2025_junho = [
-    { arquivo: "IMG-20250613-WA0015.jpg",   legenda: "" },
-    { arquivo: "IMG_20250621_112542839.jpg", legenda: "" },
-    { arquivo: "IMG_20250621_113927624.jpg", legenda: "" },
-    { arquivo: "IMG-20250621-WA0195.jpg",   legenda: "" },
-    { arquivo: "IMG-20250627-WA0105.jpg",   legenda: "" }
+    { arquivo: "IMG-20250613-WA0015.jpg",   legenda: "foto sua com o buquê que eu te dei" },
+    { arquivo: "IMG_20250621_112542839.jpg", legenda: "foto no espelho do shopping, com oculos estilosos" },
+    { arquivo: "IMG_20250621_113927624.jpg", legenda: "a gente com coisa na cabeça" },
+    { arquivo: "IMG-20250621-WA0195.jpg",   legenda: "voce me dando beijo com o buquê no espelho" },
+    { arquivo: "IMG-20250627-WA0105.jpg",   legenda: "beijo na cabeca" }
   ];
 
   var fotos_2025_julho = [
-    { arquivo: "SGCAM_20250706_174239906.jpg", legenda: "" },
-    { arquivo: "IMG-20250714-WA0063.jpg",      legenda: "" },
-    { arquivo: "IMG-20250714-WA0074.jpg",      legenda: "" },
-    { arquivo: "IMG-20250719-WA0064.jpg",      legenda: "" },
-    { arquivo: "SGCAM_20250719_111557148.jpg", legenda: "" },
-    { arquivo: "SGCAM_20250719_133309966.jpg", legenda: "" }
+    { arquivo: "SGCAM_20250706_174239906.jpg", legenda: "a gente quando foi comer batata frita e pexe" },
+    { arquivo: "IMG-20250714-WA0063.jpg",      legenda: "a gente na quadra" },
+    { arquivo: "IMG-20250714-WA0074.jpg",      legenda: "voce me oiando" },
+    { arquivo: "IMG-20250719-WA0064.jpg",      legenda: "a gente no casamento em sao joao" },
+    { arquivo: "SGCAM_20250719_111557148.jpg", legenda: "eu e voce tirando foto no casamento" },
+    { arquivo: "SGCAM_20250719_133309966.jpg", legenda: "casamento eu e voce" }
   ];
 
   var fotos_2025_agosto = [
-    { arquivo: "IMG-20250809-WA0110.jpg",         legenda: "" },
-    { arquivo: "IMG-20250809-WA0112.jpg",         legenda: "" },
-    { arquivo: "SGCAM_20250816_195238184.jpg",     legenda: "" },
-    { arquivo: "IMG_20250829_190205079_HDR.jpg",   legenda: "" },
-    { arquivo: "IMG_20250829_190253150_HDR.jpg",   legenda: "" }
+    { arquivo: "IMG-20250809-WA0110.jpg",         legenda: "eu com a alianca e o buquê" },
+    { arquivo: "IMG-20250809-WA0112.jpg",         legenda: "voce com o buque e eu" },
+    { arquivo: "SGCAM_20250816_195238184.jpg",     legenda: "eu e voce quando a gente veio em tres pontas" },
+    { arquivo: "IMG_20250829_190205079_HDR.jpg",   legenda: "beijo com buxexa cheia" },
+    { arquivo: "IMG_20250829_190253150_HDR.jpg",   legenda: "eu forte e voce linda" }
   ];
 
   var fotos_2025_setembro = [
-    { arquivo: "IMG-20250909-WA0055-2.jpg",  legenda: "" },
-    { arquivo: "IMG_20250928_174507574.jpg",  legenda: "" }
+    { arquivo: "IMG-20250909-WA0055-2.jpg",  legenda: "eu e voce no nosso cantinho" },
+    { arquivo: "IMG_20250928_174507574.jpg",  legenda: "a gente tirando cravo" }
   ];
 
   var fotos_2025_outubro = [
-    { arquivo: "original_7fe55f17-f4cc-4cb1-b7d0-c8fc01c396fe_IMG-20251013-WA0050.jpg", legenda: "" },
-    { arquivo: "20251031092647995.jpg",                                                   legenda: "" }
+    { arquivo: "original_7fe55f17-f4cc-4cb1-b7d0-c8fc01c396fe_IMG-20251013-WA0050.jpg", legenda: "a gente no cefestival" },
+    { arquivo: "20251031092647995.jpg",                                                   legenda: "hallowen na escola eu e voce" }
   ];
 
   var fotos_2025_novembro = [
-    { arquivo: "IMG_20251114_173140065_HDR.jpg", legenda: "" },
-    { arquivo: "IMG_20251114_173149217_HDR.jpg", legenda: "" },
-    { arquivo: "20251117213752198.jpg",           legenda: "" },
-    { arquivo: "IMG_20251130_194854441_HDR.jpg", legenda: "" }
+    { arquivo: "IMG_20251114_173140065_HDR.jpg", legenda: "a gente fazendo caretinha" },
+    { arquivo: "IMG_20251114_173149217_HDR.jpg", legenda: "caretinha pt2" },
+    { arquivo: "20251117213752198.jpg",           legenda: "eu e voce no parque em caxambu" },
+    { arquivo: "IMG_20251130_194854441_HDR.jpg", legenda: "eu e voce dando beijo em frente a arvore" }
   ];
 
   var fotos_2025_dezembro = [
-    { arquivo: "IMG_20251213_112536207_HDR.jpg", legenda: "" },
-    { arquivo: "IMG_20251214_083658178_HDR.jpg", legenda: "" },
-    { arquivo: "20251226221352566.jpg",           legenda: "" }
+    { arquivo: "IMG_20251213_112536207_HDR.jpg", legenda: "eu e voce de chapeu" },
+    { arquivo: "IMG_20251214_083658178_HDR.jpg", legenda: "a gente na piscina do hotel em bh" },
+    { arquivo: "20251226221352566.jpg",           legenda: "a gente replicando a foto do cellbit e lorena" }
   ];
 
   /* ---------- 2026 ---------- */
 
   var fotos_2026_janeiro = [
-    /* sem fotos identificadas para este mês */
+    { arquivo: "IMG_20251231_210235011.jpg", legenda: "eu e voce no ano novo" },
+    { arquivo: "IMG_20260127_091842366_AEfotos.jpg", legenda: "a gente hehheeh" },
   ];
 
   var fotos_2026_fevereiro = [
-    { arquivo: "IMG_20260209_150915660_HDR_AE.jpg", legenda: "" },
-    { arquivo: "IMG_20260209_153623000_AE.jpg",     legenda: "" },
-    { arquivo: "IMG_20260215_172217698_HDR.jpg",    legenda: "" }
+    { arquivo: "IMG_20260209_150915660_HDR_AE.jpg", legenda: "a gente indo pro cinema" },
+    { arquivo: "IMG_20260209_153623000_AE.jpg",     legenda: "a gente no cinema" },
+    { arquivo: "IMG_20260215_172217698_HDR.jpg",    legenda: "eu e voce no carnaval" }
   ];
 
   var fotos_2026_marco = [
-    { arquivo: "IMG_20260301_133122212.jpg",      legenda: "" },
-    { arquivo: "IMG_20260301_183038773.jpg",      legenda: "" },
-    { arquivo: "IMG_20260328_165257022_HDR.jpg",  legenda: "" },
-    { arquivo: "IMG_20260328_165319426_HDR.jpg",  legenda: "" }
+    { arquivo: "IMG_20260301_133122212.jpg",      legenda: "eu e voce no lagoa de buxexa cheia" },
+    { arquivo: "IMG_20260301_183038773.jpg",      legenda: "a gente quando foi assistir filme" },
+    { arquivo: "IMG_20260328_165257022_HDR.jpg",  legenda: "eu e voce em tres pontas depois de tomar milkshake" },
+    { arquivo: "IMG_20260328_165319426_HDR.jpg",  legenda: "eu e voce de lingua" }
   ];
 
   var fotos_2026_abril = [
-    { arquivo: "IMG_20260402_194842625.jpg", legenda: "" },
-    { arquivo: "IMG_20260402_194848159.jpg", legenda: "" },
-    { arquivo: "20260425_103323.jpg",        legenda: "" },
-    { arquivo: "20260425_103324.jpg",        legenda: "" },
-    { arquivo: "20260427_154326.jpg",        legenda: "" }
+    { arquivo: "IMG_20260402_194842625.jpg", legenda: "a gente no aniversario da livia(uma das melhor foto nossa)" },
+    { arquivo: "IMG_20260402_194848159.jpg", legenda: "a gente se olhando e lingua" },
+    { arquivo: "20260425_103323.jpg",        legenda: "voce HOFHSDJFHASKJDHFWA" },
+    { arquivo: "20260425_103324.jpg",        legenda: "voce DJAODHDDSFHSHFSDHFJ" },
+    { arquivo: "20260427_154326.jpg",        legenda: "eu e voce no cefet de boné" }
   ];
 
   var fotos_2026_maio = [
-    { arquivo: "IMG_20260502_144050417_HDR.jpg", legenda: "" },
-    { arquivo: "IMG_20260502_182348964.jpg",     legenda: "" }
+    { arquivo: "IMG_20260502_144050417_HDR.jpg", legenda: "eu dormindo no seu colo" },
+    { arquivo: "IMG_20260502_182348964.jpg",     legenda: "eu e voce quando assistiu devoradores de estrela" }
   ];
 
   var fotos_2026_junho = [
-    /* sem fotos identificadas para este mês ainda */
+    { arquivo: "nome-da-foto.jpg", legenda: "sua legenda" },
+    { arquivo: "nome-da-foto.jpg", legenda: "sua legenda" },
+    { arquivo: "nome-da-foto.jpg", legenda: "sua legenda" },  
   ];
 
 
